@@ -9,4 +9,4 @@ export class Decrement {
   readonly type = IncrementType;
 }
 
-export type CounterActions = Increment | Decrement;
+export type CounterAction = Increment | Decrement;

@@ -1,18 +1,18 @@
 import { createFeatureSelector } from '@ngrx/store';
-import { CounterActions, CounterActionTypes } from './counter.actions';
+import { Action, Types } from './counter.actions';
 
-export interface CounterState {
+export interface State {
   count: number;
 }
 
 export const initialState = 0;
 
-export const count = (state = initialState, { type }: CounterActionTypes) => {
+export const count = (state = initialState, { type }: Action) => {
   switch (type) {
-    case CounterActions.Increment:
+    case Types.Increment:
       return state + 1;
 
-    case CounterActions.Decrement:
+    case Types.Decrement:
       return state - 1;
 
     default:
@@ -24,4 +24,4 @@ export const count = (state = initialState, { type }: CounterActionTypes) => {
 // export const selectCount = (state: CounterState) => state.count;
 // export const selectCountOperator = pipe(map(selectCount));
 
-export const selectCount = createFeatureSelector<CounterState, number>('count');
+export const selectCount = createFeatureSelector<State, number>('count');

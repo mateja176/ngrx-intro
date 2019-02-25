@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { Decrement, Increment } from './counter.actions';
-import { CounterState, selectCount } from './counter.reducer';
+import { selectCount, State } from './counter.reducer';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +12,7 @@ import { CounterState, selectCount } from './counter.reducer';
 export class AppComponent {
   count$: Observable<number>;
 
-  constructor(private store$: Store<CounterState>) {
+  constructor(private store$: Store<State>) {
     this.count$ = store$.pipe(select(selectCount));
   }
 

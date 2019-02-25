@@ -1,14 +1,14 @@
-export enum CounterActions {
+export enum Types {
   Increment = '[Counter] Increment',
   Decrement = '[Counter] Decrement',
 }
 
 export class Increment {
-  readonly type = CounterActions.Increment;
+  readonly type = Types.Increment;
 }
 
 export class Decrement {
-  readonly type = CounterActions.Decrement;
+  readonly type = Types.Decrement;
 }
 
-export type CounterActionTypes = Increment | Decrement;
+export type Action = Increment | Decrement;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Decrement, Increment } from './counter.actions';
+import { Decrement, GetInitialCount, Increment } from './counter.actions';
 import { selectCount, State } from './counter.reducer';
 
 @Component({
@@ -15,6 +15,8 @@ export class AppComponent implements OnInit {
   constructor(private store$: Store<State>) {}
 
   ngOnInit() {
+    this.store$.dispatch(new GetInitialCount());
+
     this.count$ = this.store$.pipe(select(selectCount));
   }
 

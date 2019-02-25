@@ -1,6 +1,8 @@
 export enum Types {
   Increment = '[Counter] Increment',
   Decrement = '[Counter] Decrement',
+  GetInitialCount = '[Counter] Get Initial Count',
+  SetCount = '[Counter] Set Initial Count',
 }
 
 export class Increment {
@@ -11,4 +13,14 @@ export class Decrement {
   readonly type = Types.Decrement;
 }
 
-export type Action = Increment | Decrement;
+export class GetInitialCount {
+  readonly type = Types.GetInitialCount;
+}
+
+export class SetCount {
+  readonly type = Types.SetCount;
+
+  constructor(public payload: { count: number }) {}
+}
+
+export type Action = Increment | Decrement | GetInitialCount | SetCount;

@@ -25,8 +25,4 @@ export const count = (state = initialState, action: Action) => {
   }
 };
 
-// simple and composable but without the benefit of memoization
-// export const selectCount = (state: CounterState) => state.count;
-// export const selectCountOperator = pipe(map(selectCount));
-
 export const selectCount = createFeatureSelector<State, number>('count');

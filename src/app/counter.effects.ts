@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { EMPTY } from 'rxjs';
 import { catchError, map, mergeMap, tap } from 'rxjs/operators';
-import { SetInitialCount, Types } from './counter.actions';
+import { SetCount, Types } from './counter.actions';
 
 @Injectable()
 export class CounterEffects {
@@ -17,7 +17,7 @@ export class CounterEffects {
         )
         .pipe(
           tap(console.log),
-          map(({ users: { length: count } }) => new SetInitialCount({ count })),
+          map(({ users: { length: count } }) => new SetCount({ count })),
           catchError(() => EMPTY),
         ),
     ),
